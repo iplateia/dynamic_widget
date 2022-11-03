@@ -1,16 +1,24 @@
 import 'package:dynamic_widget/dynamic_widget.dart';
 import 'package:dynamic_widget/dynamic_widget/utils.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 
-class ContainerWidgetParser extends WidgetParser {
+class ProfileSetupContainerParser extends WidgetParser {
+  //todo: parse the box decoration
+  BoxDecoration parseBoxDecoration(Map<String, dynamic>? map) {
+    return BoxDecoration(borderRadius: BorderRadius.circular(60));
+  }
+
   @override
   Widget parse(Map<String, dynamic> map, BuildContext buildContext,
       ClickListener? listener) {
     Alignment? alignment = parseAlignment(map['alignment']);
-    Color? color = parseHexColor(map['color']);
+    Color? color =
+        map.containsKey("decoration") ? null : parseHexColor(map['color']);
     BoxConstraints constraints =
         parseBoxConstraints(map['constraints'], buildContext);
-    //TODO: decoration, foregroundDecoration and transform properties to be implemented.
+    BoxDecoration? boxDecoration = map.containsKey('decoration')
+        ? parseBoxDecoration(map['decoration'])
+        : null;
     EdgeInsetsGeometry? margin = parseEdgeInsetsGeometry(map['margin']);
     EdgeInsetsGeometry? padding = parseEdgeInsetsGeometry(map['padding']);
     Map<String, dynamic>? childMap = map['child'];
@@ -24,7 +32,8 @@ class ContainerWidgetParser extends WidgetParser {
     var containerWidget = Container(
       alignment: alignment,
       padding: padding,
-      color: color,
+      color: boxDecoration != null ? null : color,
+      decoration: boxDecoration,
       margin: margin,
       width: map['width']?.toDouble(),
       height: map['height']?.toDouble(),
@@ -45,7 +54,7 @@ class ContainerWidgetParser extends WidgetParser {
   }
 
   @override
-  String get widgetName => "Container";
+  String get widgetName => "ProfileSetupContainer";
 
   @override
   Map<String, dynamic> export(Widget? widget, BuildContext? buildContext) {
@@ -53,7 +62,6 @@ class ContainerWidgetParser extends WidgetParser {
     var padding = realWidget.padding as EdgeInsets?;
     var margin = realWidget.margin as EdgeInsets?;
     var constraints = realWidget.constraints;
-
     return <String, dynamic>{
       "type": widgetName,
       "alignment": realWidget.alignment != null
