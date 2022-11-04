@@ -2,15 +2,15 @@ library dynamic_widget;
 
 import 'dart:convert';
 
-import 'package:dynamic_widget/app/parsers/custom_paint_widget_parser.dart';
-import 'package:dynamic_widget/app/parsers/decorated_container_widget_parser.dart';
-import 'package:dynamic_widget/app/parsers/handle_textfield_parser.dart';
-import 'package:dynamic_widget/app/parsers/list_builder_widget_parser.dart';
-import 'package:dynamic_widget/app/parsers/name_textfield_parser.dart';
-import 'package:dynamic_widget/app/parsers/optimized_cache_image_widget_parser.dart';
-import 'package:dynamic_widget/app/parsers/profile_setup_container_parser.dart';
-import 'package:dynamic_widget/app/parsers/spacer_widget_parser.dart';
-import 'package:dynamic_widget/app/parsers/tabview_widget_parser.dart';
+import 'package:dynamic_widget/dynamic_widget/custom_parsers/custom_paint_widget_parser.dart';
+import 'package:dynamic_widget/dynamic_widget/custom_parsers/decorated_container_widget_parser.dart';
+import 'package:dynamic_widget/dynamic_widget/custom_parsers/handle_textfield_parser.dart';
+import 'package:dynamic_widget/dynamic_widget/custom_parsers/list_builder_widget_parser.dart';
+import 'package:dynamic_widget/dynamic_widget/custom_parsers/name_textfield_parser.dart';
+import 'package:dynamic_widget/dynamic_widget/custom_parsers/optimized_cache_image_widget_parser.dart';
+import 'package:dynamic_widget/dynamic_widget/custom_parsers/profile_setup_container_parser.dart';
+import 'package:dynamic_widget/dynamic_widget/custom_parsers/spacer_widget_parser.dart';
+import 'package:dynamic_widget/dynamic_widget/custom_parsers/tabview_widget_parser.dart';
 import 'package:dynamic_widget/dynamic_widget/basic/align_widget_parser.dart';
 import 'package:dynamic_widget/dynamic_widget/basic/appbar_widget_parser.dart';
 import 'package:dynamic_widget/dynamic_widget/basic/aspectratio_widget_parser.dart';
