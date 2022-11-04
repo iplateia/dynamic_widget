@@ -11,7 +11,10 @@ class HandleTextFieldParser extends WidgetParser {
     return TextField(
         decoration: InputDecoration(hintText: "@"),
         controller: textEditingController,
-        onChanged: (listener as TextFieldClickListener).onHandleTextChanged);
+        onChanged: (text) {
+          if (listener is TextFieldClickListener)
+            listener.onHandleTextChanged(text);
+        });
   }
 
   @override
