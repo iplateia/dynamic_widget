@@ -1,7 +1,7 @@
 import 'package:dynamic_widget/dynamic_widget.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/custom_painter.dart';
+import '../custom_widgets/custom_painter.dart';
 
 class CustomPaintWidgetParser extends WidgetParser {
   @override
